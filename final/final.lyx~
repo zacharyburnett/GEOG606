@@ -1,0 +1,161 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+GEOG606 Final Project
+\end_layout
+
+\begin_layout Author
+Zach Burnett
+\end_layout
+
+\begin_layout Date
+2022-03-29
+\end_layout
+
+\begin_layout Abstract
+At NOAA, I work on hurricane modeling.
+ Namely, my job description is to help build capacity for NOAA to quantify
+ uncertainty in modeled storm surge caused by a hurricane.
+ In the months following a hurricane event, the project seeks to provide
+ a confidence level of uncertainty using a combination of operational models
+ of the storm state and observational data from sensors taken during the
+ storm.
+ To this effect, I build ensembles of synthetic storms by perturbing initial
+ variables, run the ensemble through operational models, and then build
+ a polynomial surrogate model via a regressive learning algorithm that can
+ be queried for sensitivities of each variable.
+ For my final project, I plan to explore spatial correlation along the ensemble
+ space by comparing inundation levels within each modeled outcome.
+ I can likely do this via cross-validation along the space of ensembles,
+ and / or by extracting spatial autocorrelation metrics of water elevations
+ in each perturbed example.
+\end_layout
+
+\begin_layout Section
+Data
+\end_layout
+
+\begin_layout Standard
+The coupled model, called ADCIRC (Advanced Circulation) works along an unstructu
+red mesh, comprised of points linked by triangular (and sometimes quadrangular)
+ cells.
+ ADCIRC can output a time series of surface fields, or alternatively individual
+ time series at selected points (
+\begin_inset Quotes eld
+\end_inset
+
+stations
+\begin_inset Quotes erd
+\end_inset
+
+), of various output variables including water elevation and water velocity.
+ Meanwhile, the data sources involved in the observational data comparison
+ include water elevation, water velocity, water salinity, water temperature,
+ etc.
+ There are surface field observations (from remote sensing imagery) that
+ span the entire extent, as well as time series data from individual stations,
+ which have relatively high temporal resolution.
+\end_layout
+
+\begin_layout Standard
+I think that the simplest option for analysis, and the best option for this
+ project, would be to focus on several defined selected station output points
+ that have observational data (namely, NOAA CO-OPS tidal stations) and compare
+ the water elevation data from the tidal stations and the water elevations
+ distribution in the spatial analysis.
+ 
+\end_layout
+
+\begin_layout Section
+Analysis
+\end_layout
+
+\begin_layout Subsection
+Cross-Validation
+\end_layout
+
+\begin_layout Subsection
+Spatial Autocorrelation
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\end_body
+\end_document
